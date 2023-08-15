@@ -1,2 +1,2 @@
 #!/bin/sh
-git ls-files --exclude-standard --others --ignored
+find . | git check-ignore --stdin | sed 's/.\///g'
