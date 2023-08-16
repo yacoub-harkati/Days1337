@@ -6,7 +6,7 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:57:45 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/16 11:57:52 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/16 13:27:48 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,4 @@ void ft_print_alphabet(void){
 	while(a<='z'){
 		ft_putchar(a++);
 	}
-}
-
-
-int main(void){
-	ft_print_alphabet();
-	return 0;
 }

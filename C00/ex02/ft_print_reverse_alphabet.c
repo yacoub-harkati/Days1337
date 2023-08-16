@@ -1,7 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_alphabet.c                                :+:      :+:    :+:   */#include <unistd.h>
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/16 13:00:17 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/16 13:27:42 by yaharkat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <unistd.h>
 
 
 void ft_putchar(char c){
@@ -9,15 +18,9 @@ void ft_putchar(char c){
 }
 
 
-void ft_print_alphabet(void){
-	char a = 'a';
-	while(a<='z'){
-		ft_putchar(a++);
+void ft_print_reverse_alphabet(void){
+	char a = 'z';
+	while(a>='a'){
+		ft_putchar(a--);
 	}
-}
-
-
-int main(void){
-	ft_print_alphabet();
-	return 0;
 }
