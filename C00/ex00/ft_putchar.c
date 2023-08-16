@@ -6,12 +6,12 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:29:02 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/16 11:29:17 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/16 11:32:55 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_putchar(char a){
-	write(1, &a, 1);
+void ft_putchar(char c){
+	write(1, &c, 1);
 }
