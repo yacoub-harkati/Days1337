@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_sort_int_tab.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 18:24:26 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/17 18:42:26 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/17 19:08:25 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/17 20:43:37 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
+void	ft_swap(int *a, int *b)
 {
-	int	length;
+	int	tmp;
 
-	length = 0;
-	while (*str)
-	{
-		length++;
-		str++;
-	}
-	return (length);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
+
+void ft_sort_int_tab(int *tab, int size)
+{   
+    int index;
+    
+    index = 0;
+    while (index < size)
+    {
+        
+    }
 }
