@@ -6,20 +6,25 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:11:10 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/16 13:27:28 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/16 16:36:24 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_putchar(char c){
-    write(1, &c, 1);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
-void ft_print_numbers(void){
-    int n = 0;
-    while(n<10){
-        ft_putchar(n + '0');
-        n++;
-    }
+void	ft_print_numbers(void)
+{
+	int	n;
+
+	n = 0;
+	while (n < 10)
+	{
+		ft_putchar(n + '0');
+		n++;
+	}
 }
