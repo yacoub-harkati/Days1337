@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rush02.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/19 17:20:55 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/19 17:21:55 by yaharkat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "rush02.h"
 
 void	print_row(int row, int column, int x, int y)
@@ -22,12 +34,12 @@ void	print_row(int row, int column, int x, int y)
 
 void	rush(int x, int y)
 {
-	int row;
-	int column;
+	int	row;
+	int	column;
 
 	row = 1;
 	if (x <= 0 || y <= 0)
-		return;
+		return ;
 	while (row <= y)
 	{
 		column = 1;
