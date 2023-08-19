@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 18:43:27 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/18 23:20:18 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/19 14:45:10 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/19 15:44:39 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_rev_int_tab(int *tab, int size)
+int	ft_str_is_alpha(char *str)
 {
-	int	index;
-	int	tmp;
+	int	i;
 
-	index = 0;
-	while (index < size / 2)
+	i = 0;
+	if (!*str)
 	{
-		tmp = tab[size - index - 1];
-		tab[size - index - 1] = tab[index];
-		tab[index] = tmp;
-		index++;
+		return (1);
 	}
+	while (str[i])
+	{
+		if (str[i] < 'a' || str[i] > 'z' || str[i] < 'A' || str[i] > 'Z')
+			return (0);
+		i++;
+	}
+	return (1);
 }

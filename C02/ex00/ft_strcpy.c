@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 18:43:27 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/18 23:20:18 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/19 10:28:13 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/19 12:10:20 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_rev_int_tab(int *tab, int size)
+char	*ft_strcpy(char *dest, char *src)
 {
-	int	index;
-	int	tmp;
+	int i;
 
-	index = 0;
-	while (index < size / 2)
+	i = 0;
+	while (src[i])
 	{
-		tmp = tab[size - index - 1];
-		tab[size - index - 1] = tab[index];
-		tab[index] = tmp;
-		index++;
+		dest[i] = src[i];
+		i++;
 	}
+	dest[i] = src[i];
+	return dest;
 }

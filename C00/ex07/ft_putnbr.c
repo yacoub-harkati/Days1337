@@ -6,41 +6,65 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 14:17:29 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/18 22:50:40 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/19 12:06:25 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+#define INT_MIN -2147483648
+#define SLOTS_MAX 32
+
+int	number_to_digits(int number, char *digits)
 {
-	write(1, &c, 1);
+	int	index;
+
+	index = 0;
+	while (number > 0 && index < SLOTS_MAX)
+	{
+		digits[index] = '0' + number % 10;
+		number /= 10;
+		index += 1;
+	}
+	return (index);
+}
+
+void	print_digits(char *digits, int length)
+{
+	int	index;
+
+	index = length - 1;
+	while (index >= 0)
+	{
+		write(1, digits + index, 1);
+		index--;
+	}
 }
 
 void	ft_putnbr(int nb)
 {
-	int	lnb;
+	int		index;
+	char	digits[SLOTS_MAX];
+	int		length;
 
-	lnb = nb;
-	if (-2147483648 == lnb)
+	if (nb == 0)
 	{
-		write(1, "-2147483648", 11);
+		write(1, "0", 1);
 		return ;
 	}
-	
+	index = 0;
+	while (index < SLOTS_MAX)
+		digits[index++] = 0;
 	if (nb < 0)
 	{
-		ft_putchar('-');
-		lnb = nb * -1;
+		if (nb == INT_MIN)
+		{
+			write(1, "-2147483648", 11);
+			return ;
+		}
+		nb = -nb;
+		write(1, "-", 1);
 	}
-	
-	if (lnb > 10)
-	{
-		ft_putnbr(lnb / 10);
-		ft_putnbr(lnb % 10);
-	}
-	else if (lnb < 10)
-	{
-		ft_putchar(lnb + '0');
-	}
+	length = number_to_digits(nb, digits);
+	print_digits(digits, length);
 }
