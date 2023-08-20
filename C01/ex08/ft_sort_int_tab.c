@@ -6,44 +6,28 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 19:08:25 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/18 23:13:50 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/20 13:51:02 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-void	ft_swap(int *a, int *b)
-{
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
 void	ft_sort_int_tab(int *tab, int size)
 {
+	int	temp;
 	int	index;
-	int	j;
-	int	tmp;
-	int	is_swapped;
 
 	index = 0;
-	while (index < size)
+	while (index < (size - 1))
 	{
-		j = 0;
-		is_swapped = 0;
-		while (j < size - index)
+		if (tab[index] > tab[index + 1])
 		{
-			if (tab[j] > tab[j + 1])
-			{
-				ft_swap(&tab[j], &tab[j + 1]);
-				is_swapped = 1;
-			}
-			j++;
+			temp = tab[index];
+			tab[index] = tab[index + 1];
+			tab[index + 1] = temp;
+			index = 0;
 		}
-		if (!is_swapped)
-			break ;
-		index++;
+		else
+			index++;
 	}
 }
