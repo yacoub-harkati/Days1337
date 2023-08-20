@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   ft_putstr_non_printable.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 18:26:03 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/19 20:01:17 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/19 22:44:38 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/19 22:45:08 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_lowercase(char *str)
+void ft_putstr_non_printable(char *str)
 {
-	if (!*str)
-	{
-		return (1);
-	}
-	while (*str)
-	{
-		if (*str < 'a' || *str > 'z')
-		{
-			return (0);
-		}
-		str++;
-	}
-	return (1);
+	
 }

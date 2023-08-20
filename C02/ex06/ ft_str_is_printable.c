@@ -6,11 +6,11 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 18:31:00 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/19 18:34:00 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/19 19:59:25 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_uppercase(char *str)
+int	ft_str_is_printable(char *str)
 {
 	if (!*str)
 	{

@@ -6,7 +6,7 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 18:36:45 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/19 19:05:45 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/19 20:14:49 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strupcase(char *str)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] > 'a' && str[i] < 'z')
+		if (str[i] >= 'a' && str[i] <= 'z')
 		{
 			str[i] -= 32;
 		}
