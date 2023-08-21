@@ -6,13 +6,13 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 20:01:40 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/19 20:14:58 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/21 06:59:59 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strlowcase(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])

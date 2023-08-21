@@ -6,7 +6,7 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 14:45:10 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/19 15:44:39 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/21 06:14:33 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_str_is_alpha(char *str)
 	}
 	while (str[i])
 	{
-		if (str[i] < 'a' || str[i] > 'z' || str[i] < 'A' || str[i] > 'Z')
+		if ((str[i] < 'a' || str[i] > 'z') && (str[i] < 'A' || str[i] > 'Z'))
 			return (0);
 		i++;
 	}
