@@ -1,28 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    ft_str_is_numeric.c                               :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 15:45:26 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/21 13:40:07 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/21 15:43:28 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/21 15:44:56 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_numeric(char *str)
+char *ft_strstr(char *str, char *to_find)
 {
-	if (!*str)
-	{
-		return (1);
-	}
-	while (*str)
-	{
-		if (*str < '0' || *str > '9')
-		{
-			return (0);
-		}
-		str++;
-	}
-	return (1);
+	while
 }

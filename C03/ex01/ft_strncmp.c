@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 21:18:58 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/21 18:42:38 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/21 14:30:38 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/21 14:31:18 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	count(char *str)
-{
-	int	i;
+typedef unsigned char t_char;
 
+int ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+	int i;
+	int cmp_result;
+
+	cmp_result = 0;
 	i = 0;
-	while (str[i])
+	while (s1[i])
 	{
+		if (s1[i] != s2[i] && i < n)
+		{
+			cmp_result = (t_char)s1[i] - (t_char)s2[i];
+			break;
+		}
 		i++;
 	}
-	return (i);
-}
-
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
-{
-	unsigned int	i;
-	int				length;
-
-	i = 0;
-	length = count(src);
-	if (size != 0)
-	{
-		while (src[i] && i < size - 1)
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
-	}
-	return (length);
+	cmp_result = (t_char)s1[i] - (t_char)s2[i];
+	return (cmp_result);
 }

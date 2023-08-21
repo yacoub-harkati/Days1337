@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*    ft_str_is_printable.c                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 18:31:00 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/19 19:59:25 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/21 15:34:45 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/21 15:35:32 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_printable(char *str)
+int cal_length(char *str)
 {
-	if (!*str)
+	int i;
+
+	i = 0;
+	while(str[i])
 	{
-		return (1);
+		i++;
 	}
-	while (*str)
+	return i;
+}
+char *ft_strncat(char *dest, char *src, unsigned int nb)
+{
+	int src_len;
+	int i;
+
+	i = 0;
+	src_len = cal_length(dest);
+	while (src[i] && i < nb)
 	{
-		if (*str < 32 || *str > 126)
-		{
-			return (0);
-		}
-		str++;
+		dest[src_len + i] = src[i];
+		i++;
 	}
-	return (1);
+	dest[src_len + i] = '\0';
+	return (dest);
 }

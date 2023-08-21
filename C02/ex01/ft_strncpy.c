@@ -6,13 +6,13 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 18:16:18 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/19 18:16:50 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/21 17:10:26 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (src[i] && i < n)

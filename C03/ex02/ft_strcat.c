@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/19 21:18:58 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/21 18:42:38 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/21 14:35:53 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/21 15:33:44 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	count(char *str)
+int cal_length(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (str[i])
+	while(str[i])
 	{
 		i++;
 	}
-	return (i);
+	return i;
 }
-
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+char *ft_strcat(char *dest, char *src)
 {
-	unsigned int	i;
-	int				length;
+	int src_len;
+	int i;
 
 	i = 0;
-	length = count(src);
-	if (size != 0)
+	src_len = cal_length(dest);
+	while (src[i])
 	{
-		while (src[i] && i < size - 1)
-		{
-			dest[i] = src[i];
-			i++;
-		}
-		dest[i] = '\0';
+		dest[src_len + i] = src[i];
+		i++;
 	}
-	return (length);
+	dest[src_len + i] = '\0';
+	return (dest);
 }
