@@ -6,11 +6,9 @@
 /*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 15:45:26 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/19 15:59:15 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/21 13:40:07 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_str_is_numeric(char *str)
 {
