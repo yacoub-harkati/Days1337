@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 15:34:45 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/22 15:35:22 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/22 20:17:49 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int	cal_length(char *str)
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	src_len;
-	int	i;
+	int				src_len;
+	unsigned int	i;
 
 	i = 0;
 	src_len = cal_length(dest);
-	while (src[i] && i < nb)
+	while (src[i] && nb--)
 	{
 		dest[src_len + i] = src[i];
 		i++;

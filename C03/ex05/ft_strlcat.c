@@ -6,13 +6,13 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 14:52:09 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/22 15:46:48 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/22 20:18:36 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	length_cal(char *str)
+unsigned int	length_cal(char *str)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
 	while (*str)
@@ -25,16 +25,26 @@ int	length_cal(char *str)
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
-	int	dest_length;
-	int	i;
+	unsigned int	dest_length;
+	unsigned int	src_length;
+	int				i;
 
 	i = 0;
 	dest_length = length_cal(dest);
+	src_length = length_cal(src);
+	size -= dest_length - 1;
 	while (*(src + i) && size--)
 	{
 		dest[dest_length + i] = src[i];
 		i++;
 	}
-	dest[dest_length + i - 1] = '\0';
-	return (dest_length);
+	if (size > dest_length)
+	{
+		dest[dest_length + i] = '\0';
+	}
+	else
+	{
+		dest[dest_length + i - 1] = '\0';
+	}
+	return (dest_length + src_length);
 }
