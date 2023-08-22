@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/21 13:48:52 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/22 15:32:59 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/22 14:52:09 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/22 15:46:48 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-typedef unsigned char	t_char;
-
-int	ft_strcmp(char *s1, char *s2)
+int	length_cal(char *str)
 {
 	int	i;
-	int	cmp_result;
 
-	cmp_result = 0;
 	i = 0;
-	while (s1[i])
+	while (*str)
 	{
-		if (s1[i] != s2[i])
-		{
-			cmp_result = (t_char)s1[i] - (t_char)s2[i];
-			break ;
-		}
+		i++;
+		str++;
+	}
+	return (i);
+}
+
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	int	dest_length;
+	int	i;
+
+	i = 0;
+	dest_length = length_cal(dest);
+	while (*(src + i) && size--)
+	{
+		dest[dest_length + i] = src[i];
 		i++;
 	}
-	cmp_result = (t_char)s1[i] - (t_char)s2[i];
-	return (cmp_result);
+	dest[dest_length + i - 1] = '\0';
+	return (dest_length);
 }

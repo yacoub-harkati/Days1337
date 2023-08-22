@@ -3,28 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaharkat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 14:35:53 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/21 15:33:44 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/22 15:34:11 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int cal_length(char *str)
+int	cal_length(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		i++;
 	}
-	return i;
+	return (i);
 }
-char *ft_strcat(char *dest, char *src)
+
+char	*ft_strcat(char *dest, char *src)
 {
-	int src_len;
-	int i;
+	int	src_len;
+	int	i;
 
 	i = 0;
 	src_len = cal_length(dest);
