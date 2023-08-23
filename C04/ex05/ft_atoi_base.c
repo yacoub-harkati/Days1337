@@ -1,16 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 02:55:48 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/23 11:22:48 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/23 11:38:31 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/23 13:00:22 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 int is_double_chars(char *str)
 {
@@ -34,46 +32,29 @@ int is_double_chars(char *str)
     return (0);
 }
 
-void ft_putchar(char c)
-{
-    write(1, &c, 1);
-}
-
-void ft_putnbr_base(int nbr, char *base)
+int ft_atoi_base(char *str, char *base)
 {
     int base_len;
-    long long_nbr;
 
-    long_nbr = nbr;
     base_len = 0;
     while (base[base_len])
     {
-        if (base[base_len] == '+'|| base [base_len] == '-')
+        if ((base[base_len] >= 9 && base[base_len] <= 13) ||
+            base[base_len] == 32 || base[base_len] == '+' ||
+            base[base_len] == '-')
         {
-            return ;
+            return (0);
         }
         base_len++;
     }
 
-    if (base_len < 2)
-    {
-        return ;
-    }
-
     if (is_double_chars(base))
     {
-        return ;
+        return (0);
     }
-    
-    if (long_nbr < 0)
+
+    if (base_len < 2)
     {
-        long_nbr = -long_nbr;   
-        ft_putchar('-');
+        return (0);
     }
-    
-    if (long_nbr >= base_len)
-    {
-        ft_putnbr_base(long_nbr / base_len, base);
-    }
-    ft_putchar(base[long_nbr % base_len]);
 }
