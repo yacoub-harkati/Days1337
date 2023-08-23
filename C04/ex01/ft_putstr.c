@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/21 15:43:28 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/23 00:29:17 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/23 00:51:42 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/23 00:56:42 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strstr(char *str, char *to_find)
-{
-	int	i;
-	int	j;
+#include <unistd.h>
 
-	i = 0;
-	if (!*to_find)
-	{
-		return (str);
-	}
-	while (str[i])
-	{
-		j = 0;
-		while (str[i + j] == to_find[j])
-		{
-			if (to_find[j + 1] == '\0')
-			{
-				return (&str[i]);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
+void ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void ft_putstr(char *str)
+{
+    int i;
+
+    i = 0;
+    while (str[i])
+    {
+        ft_putchar(str[i]);
+        i++;
+    }
 }
