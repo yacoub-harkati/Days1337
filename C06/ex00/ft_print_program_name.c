@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 17:36:17 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/23 20:35:27 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/24 16:21:23 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ int	main(int argc, char *argv[])
 
 	i = argc;
 	ft_putstr(argv[0]);
+	ft_putstr("\n");
 	return (0);
 }
