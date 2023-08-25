@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 01:10:30 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/24 14:58:06 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/25 20:44:55 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ int	ft_is_prime(int nb)
 	divider = 2;
 	if (nb <= 1)
 		return (0);
-	while (divider < nb && nb < MAX_NUM)
+	if (nb == 1)
+		return (0);
+	if (nb == 2)
+		return (1);
+	while (divider < nb && nb <= MAX_NUM)
 	{
 		if (nb % divider == 0)
 		{
@@ -32,7 +36,7 @@ int	ft_is_prime(int nb)
 
 int	ft_find_next_prime(int nb)
 {
-	while (nb < MAX_NUM)
+	while (nb <= MAX_NUM)
 	{
 		if (ft_is_prime(nb))
 		{
