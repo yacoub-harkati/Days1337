@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 00:38:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/24 15:09:47 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/26 15:24:12 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,12 @@ int	ft_sqrt(int nb)
 {
 	int	i;
 
-	i = 3;
-	if (i < 0)
-		return (-1);
-	if (!nb)
-		return (0);
-	if (nb == 1)
-		return (1);
+	i = 1;
+	if (!nb || nb == 1)
+		return (nb);
 	if (nb <= 2 && nb != 1)
 		return (0);
-	while (i * i <= nb && i != 46340)
+	while (i * i <= nb && i < 46340)
 	{
 		if (i * i == nb)
 			return (i);
