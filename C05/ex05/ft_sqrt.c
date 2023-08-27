@@ -6,14 +6,14 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 00:38:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/26 22:30:06 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/27 04:02:49 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_sqrt(int nb)
+int	ft_sqrt(int nb)
 {
-	unsigned int index;
-	unsigned int number;
+	unsigned int	index;
+	unsigned int	number;
 
 	if (nb < 0)
 	{
