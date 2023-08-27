@@ -1,46 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 01:10:30 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/27 00:09:35 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/25 22:40:19 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/25 22:40:37 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define MAX_NUM 2147483647
+#include <stdlib.h>
 
-int	ft_is_prime(int nb)
+int	ft_ultimate_range(int **range, int min, int max)
 {
-	int	divider;
+	int	size;
+	int	*tab;
+	int	i;
 
-	divider = 2;
-	if (nb <= 1)
+	if (min >= max)
+	{
+		*range = NULL;
 		return (0);
-	if (nb == 2)
-		return (1);
-	while (divider <= nb / divider)
-	{
-		if (nb % divider == 0)
-		{
-			return (0);
-		}
-		divider++;
 	}
-	return (1);
-}
-
-int	ft_find_next_prime(int nb)
-{
-	while (nb <= MAX_NUM)
+	i = 0;
+	size = max - min;
+	tab = (int *)malloc( (size + 1) * sizeof(int));
+	if (tab == NULL)
 	{
-		if (ft_is_prime(nb))
-		{
-			return (nb);
-		}
-		nb++;
+		return (-1);
 	}
-	return (0);
+	while (min < max)
+	{
+		tab[i] = min;
+		min++;
+		i++;
+	}
+	*range = tab;
+	return (i);
 }

@@ -6,24 +6,28 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 00:38:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/26 15:24:12 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/26 22:30:06 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_sqrt(int nb)
+int ft_sqrt(int nb)
 {
-	int	i;
+	unsigned int index;
+	unsigned int number;
 
-	i = 1;
-	if (!nb || nb == 1)
-		return (nb);
-	if (nb <= 2 && nb != 1)
-		return (0);
-	while (i * i <= nb && i < 46340)
+	if (nb < 0)
 	{
-		if (i * i == nb)
-			return (i);
-		i++;
+		return (0);
+	}
+	index = 1;
+	number = nb;
+	if (!number || number == 1)
+		return (number);
+	while (index * index <= number && index < 46341)
+	{
+		if (index * index == number)
+			return (index);
+		index++;
 	}
 	return (0);
 }
