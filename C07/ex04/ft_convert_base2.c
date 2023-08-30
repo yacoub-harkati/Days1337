@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:47:18 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/28 16:11:29 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/29 23:48:27 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	is_double_chars(char *str)
 	return (0);
 }
 
-int	compute_length(int nbr, int base_len)
+int	compute_length(long nbr, int base_len)
 {
 	int	count;
 

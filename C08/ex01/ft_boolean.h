@@ -1,46 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_next_prime.c                               :+:      :+:    :+:   */
+/*   ft_boolean.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/24 01:10:30 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/29 21:59:15 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/08/29 21:03:59 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/08/30 03:30:25 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#define MAX_NUM 2147483647
+#ifndef FT_BOOLEAN_H
+# define FT_BOOLEAN_H
 
-int	ft_is_prime(int nb)
+# include <unistd.h>
+
+typedef enum bool
 {
-	int	divider;
+	true = 1,
+	false = 0
+}	t_bool;
 
-	divider = 2;
-	if (nb <= 1)
-		return (0);
-	if (nb == 2)
-		return (1);
-	while (divider <= nb / divider)
-	{
-		if (nb % divider == 0)
-		{
-			return (0);
-		}
-		divider++;
-	}
-	return (1);
-}
+# define EVEN(n) (n % 2 == 0)
 
-int	ft_find_next_prime(int nb)
-{
-	while (nb <= MAX_NUM)
-	{
-		if (ft_is_prime(nb))
-		{
-			return (nb);
-		}
-		nb++;
-	}
-	return (0);
-}
+# define TRUE 1
+# define FALSE 0
+
+# define EVEN_MSG "I have an even number of arguments.\n"
+# define ODD_MSG "I have an odd number of arguments.\n"
+
+# define SUCCESS 0
+
+#endif

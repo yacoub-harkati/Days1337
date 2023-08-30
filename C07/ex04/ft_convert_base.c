@@ -6,15 +6,15 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:47:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/28 16:10:42 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/30 00:42:27 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <unistd.h>
+#include <stdio.h>
 
 int		check(char *base);
-int		compute_length(int nbr, int base_len);
+int		compute_length(long nbr, int base_len);
 int		ft_atoi_base(char *str, char *base);
 
 int	find_str_start(char *str, int *sign)
@@ -53,7 +53,7 @@ int	get_pos_in_base(char c, char *base)
 	return (-1);
 }
 
-char	*ft_convert_base2(int number, int sign, char *base_to, char *tab)
+char	*ft_convert_base2(long number, int sign, char *base_to, char *tab)
 {
 	int	base_len;
 	int	size;
@@ -80,7 +80,7 @@ char	*ft_convert_base2(int number, int sign, char *base_to, char *tab)
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	int		number;
+	long	number;
 	int		size;
 	int		base_len;
 	int		sign;
