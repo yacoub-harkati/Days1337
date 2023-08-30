@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:47:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/30 00:42:27 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/30 19:00:29 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,7 @@ char	*ft_convert_base2(long number, int sign, char *base_to, char *tab)
 	i = 0;
 	size = compute_length(number, base_len);
 	if (sign)
-	{
 		tab[0] = '-';
-	}
 	if (!tab)
 		return (NULL);
 	while (i < size)

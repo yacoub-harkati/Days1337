@@ -21,7 +21,7 @@ int main(void)
 	printf("\"%s\"\n", baseconv);
 	free(baseconv);
 
-	baseconv = ft_convert_base("0", "0123456789", "0123456789abcdef");
+	baseconv = ft_convert_base("0", "0123456789abcdef", "0123456789");
 	printf("\"%s\"\n", baseconv);
 	free(baseconv);
 

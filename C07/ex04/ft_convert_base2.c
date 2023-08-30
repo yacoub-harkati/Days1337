@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:47:18 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/29 23:48:27 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/08/30 19:00:13 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	compute_length(long nbr, int base_len)
 	int	count;
 
 	count = 0;
+	if (!nbr)
+		return (1);
 	while (nbr > 0)
 	{
 		nbr /= base_len;
@@ -87,9 +89,7 @@ int	ft_atoi_base(char *str, char *base)
 	sign = 1;
 	baselen = check(base);
 	if (baselen == 0)
-	{
 		return (0);
-	}
 	index = find_str_start(str, &sign);
 	temp = get_pos_in_base(str[index], base);
 	while (str[index] && temp != -1)
