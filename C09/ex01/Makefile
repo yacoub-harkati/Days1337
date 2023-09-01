@@ -1,18 +1,19 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC_DIR = ./srcs
-SRCS = $(shell find $(SRC_DIR) -name "*.c")
+SRC_DIR = ./srcs/
+SRC = ft_putchar.c ft_swap.c ft_putstr.c ft_strlen.c ft_strcmp.c
+SRCS = $(addprefix $(SRC_DIR), $(SRC))
 HEAD = ./includes/
 OBJS = $(SRCS:.c=.o)
 NAME = libft.a
 LIB = ranlib
-AR = ar -rc
+AR = ar rc
 RM = rm -f
 
 all: $(NAME)
 
-$(OBJS): $(SRC_DIR)/%.o : $(SRC_DIR)/%.c
-	$(CC) $(CFLAGS) -c -I $(HEAD) $^ -o $@
+.c.o:
+	$(CC) $(CFLAGS) -c -I $(HEAD) $^ -o $(^:.c=.o)
 
 $(NAME) : $(OBJS)
 	$(AR) $(NAME) $(OBJS)
