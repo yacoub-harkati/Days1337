@@ -13,7 +13,7 @@ RM = rm -f
 all: $(NAME)
 
 .c.o:
-	$(CC) $(CFLAGS) -c -I $(HEAD) $^ -o $(^:.c=.o)
+	$(CC) $(CFLAGS) -c -I $(HEAD) $< -o $(<:.c=.o)
 
 $(NAME) : $(OBJS)
 	$(AR) $(NAME) $(OBJS)
