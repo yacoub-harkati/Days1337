@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_is_sort(int *tab, int length, int (*f)(int, int))
+int	ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
-	int sort_cmp;
-	int i;
-	
+	int	sort_cmp;
+	int	i;
+
 	i = 0;
 	sort_cmp = 0;
-	while(i < length - 1)
+	while (i < length - 1)
 	{
 		sort_cmp = f(tab[i], tab[i + 1]);
 		if (sort_cmp > 0)

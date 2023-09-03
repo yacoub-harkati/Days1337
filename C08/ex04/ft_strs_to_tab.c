@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 03:45:30 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/30 18:40:13 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/03 17:56:36 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ struct s_stock_str	*ft_strs_to_tab(int ac, char **av)
 		return (NULL);
 	while (i < ac)
 	{
-		str_len = ft_strlen(av[i]);
 		final_struct[i].size = ft_strlen(av[i]);
 		final_struct[i].str = av[i];
 		final_struct[i].copy = ft_strdup(final_struct[i].str);
