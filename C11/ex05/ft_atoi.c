@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 23:16:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/03 00:10:50 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/09/03 16:34:24 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/09/03 17:35:42 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_atoi(char *str)
 {
-	int i;
+	int	i;
+	int	sign;
+	int	result;
 
 	i = 0;
-	while (str[i])
+	sign = 1;
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
+		i++;
+	while (str[i] == '-' || str[i] == '+')
 	{
-		write(1, &str[i], 1);
+		if (str[i] == '-')
+			sign *= -1;
+	}
+	while (str[i] <= '9' && str[i] >= '0')
+	{
+		result *= 10;
+		result += str[i] - '0';
 		i++;
 	}
+	return (result);
 }

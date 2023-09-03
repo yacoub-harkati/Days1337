@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_is_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 23:16:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/03 00:10:50 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/09/03 15:28:42 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/09/03 15:40:23 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int ft_is_sort(int *tab, int length, int (*f)(int, int))
 {
+	int sort_cmp;
 	int i;
-
+	
 	i = 0;
-	while (str[i])
+	sort_cmp = 0;
+	while(i < length - 1)
 	{
-		write(1, &str[i], 1);
+		sort_cmp = f(tab[i], tab[i + 1]);
+		if (sort_cmp > 0)
+		{
+			return (0);
+		}
 		i++;
 	}
+	return (1);
 }

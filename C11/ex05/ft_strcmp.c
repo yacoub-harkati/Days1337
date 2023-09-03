@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 23:16:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/03 00:10:50 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/09/03 16:30:39 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/09/03 16:30:41 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
+	int	cmp_result;
 
+	cmp_result = 0;
 	i = 0;
-	while (str[i])
+	while (s1[i] && s2[i] && s1[i] == s2[i])
 	{
-		write(1, &str[i], 1);
 		i++;
 	}
+	cmp_result = (unsigned char)s1[i] - (unsigned char)s2[i];
+	return (cmp_result);
 }

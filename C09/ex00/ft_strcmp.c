@@ -6,11 +6,9 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 23:15:53 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/02 23:16:29 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/03 00:11:25 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-typedef unsigned char t_char;
 
 int ft_strcmp(char *s1, char *s2)
 {
@@ -23,6 +21,6 @@ int ft_strcmp(char *s1, char *s2)
 	{
 		i++;
 	}
-	cmp_result = (t_char)s1[i] - (t_char)s2[i];
+	cmp_result = (unsigned char)s1[i] - (unsigned char)s2[i];
 	return (cmp_result);
 }

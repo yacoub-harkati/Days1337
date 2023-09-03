@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   op.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 23:16:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/03 00:10:50 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/09/03 16:35:35 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/09/03 17:31:36 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putstr(char *str)
+int	ft_multiplication(int a, int b)
 {
-	int i;
+	return (a * b);
+}
 
-	i = 0;
-	while (str[i])
-	{
-		write(1, &str[i], 1);
-		i++;
-	}
+int	ft_addition(int a, int b)
+{
+	return (a + b);
+}
+
+int	ft_substraction(int a, int b)
+{
+	return (a - b);
+}
+
+int	ft_division(int a, int b)
+{
+	return (a / b);
+}
+
+int	ft_modulo(int a, int b)
+{
+	return (a % b);
 }
