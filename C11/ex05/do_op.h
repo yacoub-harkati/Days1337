@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 17:35:23 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/03 17:35:24 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/03 18:28:02 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef enum s_bool
 
 void	ft_putnbr(long nb);
 int		ft_atoi(char *str);
-int		do_op(int a, int b, char op);
+void	do_op(int a, int b, char op);
 int		ft_strcmp(char *s1, char *s2);
 void	ft_putchar(char c);
 int		ft_multiplication(int a, int b);

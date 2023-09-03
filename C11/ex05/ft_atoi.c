@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:34:24 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/03 17:35:42 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/03 18:31:00 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	ft_atoi(char *str)
 	{
 		if (str[i] == '-')
 			sign *= -1;
+		i++;
 	}
 	while (str[i] <= '9' && str[i] >= '0')
 	{
@@ -32,5 +33,5 @@ int	ft_atoi(char *str)
 		result += str[i] - '0';
 		i++;
 	}
-	return (result);
+	return (sign * result);
 }

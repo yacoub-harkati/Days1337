@@ -6,33 +6,26 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:40:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/03 17:21:32 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/03 18:27:47 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "do_op.h"
 
-int	do_op(int a, int b, char op)
+void	do_op(int a, int b, char op)
 {
+	int	result;
+
 	if (op == '+')
-	{
-		return (ft_addition(a, b));
-	}
+		result = ft_addition(a, b);
 	if (op == '-')
-	{
-		return (ft_substraction(a, b));
-	}
+		result = ft_substraction(a, b);
 	if (op == '/')
-	{
-		return (ft_division(a, b));
-	}
+		result = ft_division(a, b);
 	if (op == '*')
-	{
-		return (ft_multiplication(a, b));
-	}
+		result = ft_multiplication(a, b);
 	if (op == '%')
-	{
-		return (ft_modulo(a, b));
-	}
-	return (0);
+		result = ft_modulo(a, b);
+	ft_putnbr(result);
+	ft_putchar('\n');
 }
