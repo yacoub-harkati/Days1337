@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:40:50 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/03 18:44:23 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/04 20:11:36 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	print_invalid(void)
 
 int	main(int ac, char *av[])
 {
-	int	n1;
-	int	n2;
+	long	n1;
+	long	n2;
 
 	if (ac == 4)
 	{

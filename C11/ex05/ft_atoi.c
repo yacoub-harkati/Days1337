@@ -6,15 +6,15 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:34:24 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/03 18:31:00 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/04 20:12:52 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
-	int	i;
-	int	sign;
-	int	result;
+	int		i;
+	int		sign;
+	long	result;
 
 	i = 0;
 	sign = 1;

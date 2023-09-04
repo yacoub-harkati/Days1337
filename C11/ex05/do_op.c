@@ -6,15 +6,15 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:40:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/03 18:27:47 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/04 20:12:15 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "do_op.h"
 
-void	do_op(int a, int b, char op)
+void	do_op(long a, long b, char op)
 {
-	int	result;
+	long	result;
 
 	if (op == '+')
 		result = ft_addition(a, b);
