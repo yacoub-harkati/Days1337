@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 17:35:23 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/04 20:17:56 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/05 14:44:57 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 # define DO_OP_H
 
 # include <unistd.h>
-
-typedef enum s_bool
-{
-	true = 1,
-	false = 0
-}		t_bool;
 
 void	ft_putnbr(long nb);
 long	ft_atoi(char *str);
