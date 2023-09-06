@@ -6,14 +6,14 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:47:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/30 19:00:29 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/06 23:47:16 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-int		check(char *base);
+int		is_valid(char *base);
 int		compute_length(long nbr, int base_len);
 int		ft_atoi_base(char *str, char *base);
 
@@ -37,7 +37,7 @@ int	find_str_start(char *str, int *sign)
 	return (index);
 }
 
-int	get_pos_in_base(char c, char *base)
+int	check_index(char c, char *base)
 {
 	int	i;
 
@@ -45,9 +45,7 @@ int	get_pos_in_base(char c, char *base)
 	while (base[i])
 	{
 		if (base[i] == c)
-		{
 			return (i);
-		}
 		i++;
 	}
 	return (-1);
@@ -59,7 +57,7 @@ char	*ft_convert_base2(long number, int sign, char *base_to, char *tab)
 	int	size;
 	int	i;
 
-	base_len = check(base_to);
+	base_len = is_valid(base_to);
 	i = 0;
 	size = compute_length(number, base_len);
 	if (sign)
@@ -86,11 +84,11 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 
 	sign = 0;
 	size = 0;
-	number = ft_atoi_base(nbr, base_from);
-	base_len = check(base_to);
-	final_nbr_in_base = NULL;
-	if (!base_len)
+	if (!is_valid(base_from) || !is_valid(base_to) || !*nbr)
 		return (NULL);
+	number = ft_atoi_base(nbr, base_from);
+	base_len = is_valid(base_to);
+	final_nbr_in_base = NULL;
 	if (number < 0)
 	{
 		sign = 1;

@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op.c                                               :+:      :+:    :+:   */
+/*   ft_list_reverse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 16:35:35 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/05 21:30:58 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/09/05 02:53:35 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/09/05 18:32:41 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_multiplication(int a, int b)
-{
-	return (a * b);
-}
+#include "ft_list.h"
 
-int	ft_addition(int a, int b)
+void ft_list_reverse(t_list **begin_list)
 {
-	return (a + b);
-}
-
-int	ft_substraction(int a, int b)
-{
-	return (a - b);
-}
-
-int	ft_division(int a, int b)
-{
-	return (a / b);
-}
-
-int	ft_modulo(int a, int b)
-{
-	return (a % b);
+	t_list *prev;
+	t_list *current;
+	t_list *next;
+	
+	prev = NULL;
+	current = (*begin_list);
+	next = NULL;
+	while (current)
+	{
+		next = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
+	}
 }

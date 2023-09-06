@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op.c                                               :+:      :+:    :+:   */
+/*   ft_list_at.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 16:35:35 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/05 21:30:58 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/09/05 02:43:28 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/09/05 02:52:31 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_multiplication(int a, int b)
-{
-	return (a * b);
-}
+#include "ft_list.h"
 
-int	ft_addition(int a, int b)
+t_list *ft_list_at(t_list *begin_list, unsigned int nbr)
 {
-	return (a + b);
-}
+	int i;
 
-int	ft_substraction(int a, int b)
-{
-	return (a - b);
-}
-
-int	ft_division(int a, int b)
-{
-	return (a / b);
-}
-
-int	ft_modulo(int a, int b)
-{
-	return (a % b);
+	i = 0;
+	while (begin_list && i < nbr)
+	{
+		begin_list = begin_list->next;
+		i++;
+	}
+	if (i != nbr)
+		return (0);
+	return (begin_list);
 }

@@ -6,18 +6,17 @@ SRCS = $(addprefix $(SRC_DIR), $(SRC))
 HEAD = ./includes/
 OBJS = $(SRCS:.c=.o)
 NAME = libft.a
-LIB = ranlib
-AR = ar rc
+AR = ar rcs
 RM = rm -f
 
 all: $(NAME)
 
-.c.o:
-	$(CC) $(CFLAGS) -c -I $(HEAD) $< -o $(<:.c=.o)
-
 $(NAME) : $(OBJS)
 	$(AR) $(NAME) $(OBJS)
-	$(LIB) $(NAME)
+
+.c.o: 
+	$(CC) $(CFLAGS) -c -I $(HEAD) $< -o $(<:.c=.o)
+
 
 fclean: clean
 	$(RM) $(NAME)

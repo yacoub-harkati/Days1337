@@ -6,15 +6,15 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:40:22 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/05 15:15:17 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/05 22:20:43 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "do_op.h"
 
-long calculate_op(long a, long b, char op, long (*operrators[])(long, long))
+int	calculate_op(int a, int b, char op, int (*operrators[])(int, int))
 {
-	long result;
+	int	result;
 
 	result = 0;
 	if (op == '+')
@@ -30,11 +30,11 @@ long calculate_op(long a, long b, char op, long (*operrators[])(long, long))
 	return (result);
 }
 
-void do_op(long a, long b, char op)
+void	do_op(int a, int b, char op)
 {
-	long result;
-	long (*operrators[5])(long, long);
-	
+	int	result;
+	int	(*operrators[5])(int, int);
+
 	operrators[0] = ft_addition;
 	operrators[1] = ft_substraction;
 	operrators[2] = ft_division;

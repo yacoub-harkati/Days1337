@@ -6,7 +6,7 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/27 15:47:18 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/31 10:07:59 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/06 23:14:50 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,33 @@
 int	find_str_start(char *str, int *sign);
 int	get_pos_in_base(char c, char *base);
 
-int	is_double_chars(char *str)
+
+int	is_char_in_base(char c, char *base)
 {
 	int	i;
-	int	j;
 
 	i = 0;
-	while (str[i])
+	while (base[i])
 	{
-		j = i + 1;
-		while (str[j])
-		{
-			if (str[i] == str[j])
-			{
-				return (1);
-			}
-			j++;
-		}
+		if (c == base[i])
+			return (1);
 		i++;
 	}
 	return (0);
+}
+
+int	is_valid_str(char *str, char *base, int index)
+{
+	int	i;
+
+	i = index;
+	while (str[i])
+	{
+		if (!is_char_in_base(str[i], base))
+			return (0);
+		i++;
+	}
+	return (1);
 }
 
 int	compute_length(long nbr, int base_len)
@@ -52,52 +59,46 @@ int	compute_length(long nbr, int base_len)
 	return (count);
 }
 
-int	check(char *base)
+int	is_valid(char *base)
 {
-	int	base_len;
+	int	i;
 
-	base_len = 0;
-	while (base[base_len])
+	i = 0;
+	if (!base || base[0] == '\0' || base[1] == '\0')
+		return (0);
+	while (base[i])
 	{
-		if (base[base_len] == '+' || base[base_len] == '-')
-		{
+		if (base[i] == '+' || base[i] == '-' || base[i] == base[i + 1])
 			return (0);
-		}
-		base_len++;
+		i++;
 	}
-	if (base_len < 2)
-	{
-		return (0);
-	}
-	if (is_double_chars(base))
-	{
-		return (0);
-	}
-	return (base_len);
+	return (i);
 }
 
 int	ft_atoi_base(char *str, char *base)
 {
-	long	number;
-	int		baselen;
-	int		sign;
-	int		temp;
-	int		index;
+	int	res;
+	int	sign;
+	int	base_len;
+	int	i;
 
-	number = 0;
-	index = 0;
+	res = 0;
 	sign = 1;
-	baselen = check(base);
-	if (baselen == 0)
+	i = 0;
+	base_len = is_valid(base);
+	if (!base_len)
 		return (0);
-	index = find_str_start(str, &sign);
-	temp = get_pos_in_base(str[index], base);
-	while (str[index] && temp != -1)
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	while (str[i] == '+' || str[i] == '-')
 	{
-		number *= (long)baselen;
-		number += (long)temp;
-		index++;
-		temp = get_pos_in_base(str[index], base);
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	return (number * (long)sign);
+	if (!is_valid_str(str, base, i))
+		return (0);
+	while (check_index(str[i], base) != -1)
+		res = (res * base_len) + check_index(str[i++], base);
+	return (sign * res);
 }

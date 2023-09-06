@@ -6,57 +6,11 @@
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:32:27 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/08/27 11:28:11 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/06 22:45:00 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_double_chars(char *str)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (str[i])
-	{
-		j = i + 1;
-		while (str[j])
-		{
-			if (str[i] == str[j])
-			{
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-int	check(char *base)
-{
-	int	base_len;
-
-	base_len = 0;
-	while (base[base_len])
-	{
-		if (base[base_len] == '+' || base[base_len] == '-')
-		{
-			return (0);
-		}
-		base_len++;
-	}
-	if (base_len < 2)
-	{
-		return (0);
-	}
-	if (is_double_chars(base))
-	{
-		return (0);
-	}
-	return (base_len);
-}
-
-int	get_pos_in_base(char c, char *base)
+int	check_index(char c, char *base)
 {
 	int	i;
 
@@ -64,58 +18,80 @@ int	get_pos_in_base(char c, char *base)
 	while (base[i])
 	{
 		if (base[i] == c)
-		{
 			return (i);
-		}
 		i++;
 	}
 	return (-1);
 }
 
-int	find_str_start(char *str, int *sign)
+int	is_char_in_base(char c, char *base)
 {
-	int	index;
+	int	i;
 
-	index = 0;
-	while ((str[index] >= 9 && str[index] <= 13) || str[index] == 32)
+	i = 0;
+	while (base[i])
 	{
-		index++;
+		if (c == base[i])
+			return (1);
+		i++;
 	}
-	while (str[index] == '-' || str[index] == '+')
+	return (0);
+}
+
+int	is_valid_str(char *str, char *base, int index)
+{
+	int	i;
+
+	i = index;
+	while (str[i])
 	{
-		if (str[index] == '-')
-		{
-			*sign = -*sign;
-		}
-		index++;
+		if (!is_char_in_base(str[i], base))
+			return (0);
+		i++;
 	}
-	return (index);
+	return (1);
+}
+
+int	is_valid(char *base)
+{
+	int	i;
+
+	i = 0;
+	if (!base || base[0] == '\0' || base[1] == '\0')
+		return (0);
+	while (base[i])
+	{
+		if (base[i] == '+' || base[i] == '-' || base[i] == base[i + 1])
+			return (0);
+		i++;
+	}
+	return (i);
 }
 
 int	ft_atoi_base(char *str, char *base)
 {
-	long	number;
-	int		baselen;
-	int		sign;
-	int		temp;
-	int		index;
+	int	res;
+	int	sign;
+	int	base_len;
+	int	i;
 
-	number = 0;
-	index = 0;
+	res = 0;
 	sign = 1;
-	baselen = check(base);
-	if (baselen == 0)
-	{
+	i = 0;
+	base_len = is_valid(base);
+	if (!base_len)
 		return (0);
-	}
-	index = find_str_start(str, &sign);
-	temp = get_pos_in_base(str[index], base);
-	while (str[index] && temp != -1)
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	while (str[i] == '+' || str[i] == '-')
 	{
-		number *= (long)baselen;
-		number += (long)temp;
-		index++;
-		temp = get_pos_in_base(str[index], base);
+		if (str[i] == '-')
+			sign *= -1;
+		i++;
 	}
-	return (number * (long)sign);
+	if (!is_valid_str(str, base, i))
+		return (0);
+	while (check_index(str[i], base) != -1)
+		res = (res * base_len) + check_index(str[i++], base);
+	return (sign * res);
 }
