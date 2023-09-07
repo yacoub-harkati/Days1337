@@ -3,12 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 15:32:27 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/07 00:59:01 by yaharkat         ###   ########.fr       */
+/*   Updated: 2023/09/07 11:59:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int is_space(char c)
+{
+	return (c == 32 || (c >= 9 && c <= 13));
+}
 
 int	check_index(char c, char *base)
 {
@@ -34,6 +39,8 @@ int	is_valid(char *base)
 	while (base[i])
 	{
 		if (base[i] == '+' || base[i] == '-' || base[i] == base[i + 1])
+			return (0);
+		if(is_space(base[i]))
 			return (0);
 		i++;
 	}

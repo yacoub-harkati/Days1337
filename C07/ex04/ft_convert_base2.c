@@ -10,22 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_space(char c)
+int is_space(char c)
 {
 	if ((c >= 9 && c <= 13) || c == ' ')
 		return (1);
 	return (0);
 }
 
-int	is_valid_base(char *base)
+int is_valid_base(char *base)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 0;
 	while (base[i])
 	{
 		if (base[i] == '-' || base[i] == '+')
+			return (0);
+		if (is_space(base[i]))
 			return (0);
 		j = i + 1;
 		while (base[j])
@@ -39,9 +41,9 @@ int	is_valid_base(char *base)
 	return (i);
 }
 
-int	get_index(char c, char *base)
+int get_index(char c, char *base)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (base[i])
@@ -53,10 +55,10 @@ int	get_index(char c, char *base)
 	return (-1);
 }
 
-int	parse_number(char *str, int i, char *base)
+int parse_number(char *str, int i, char *base)
 {
-	int	base_len;
-	int	number;
+	int base_len;
+	int number;
 
 	number = 0;
 	base_len = is_valid_base(base);
@@ -69,11 +71,11 @@ int	parse_number(char *str, int i, char *base)
 	return (number);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int ft_atoi_base(char *str, char *base)
 {
-	int	i;
-	int	number;
-	int	neg;
+	int i;
+	int number;
+	int neg;
 
 	number = 0;
 	neg = 0;

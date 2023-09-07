@@ -43,13 +43,19 @@ int main(void) {
     all_tests_passed &= run_test("Negative Decimal to Hexadecimal", "-255", "0123456789", "0123456789ABCDEF", "-FF");
 
     // Test 6: Empty Input
-    all_tests_passed &= run_test("Empty Input", "", "0123456789abcdef", "0123456789", "");
+    all_tests_passed &= run_test("Empty Input", "", "0123456789abcdef", "0123456789", "0");
 
     // Test 7: Base Conversion without Base From
-    all_tests_passed &= run_test("Base Conversion without Base From", "1001", "", "01", "");
+    all_tests_passed &= run_test("Base Conversion without Base From", "1001", "", "01", 0);
 
     // Test 8: Base Conversion without Base To
-    all_tests_passed &= run_test("Base Conversion without Base To", "42", "01", "", "");
+    all_tests_passed &= run_test("Base Conversion without Base To", "42", "01", "", 0);
+
+    // Test 8: Base Conversion without Base To
+    all_tests_passed &= run_test("Base Conversion without Base To", "))))))s", "01", "01", "0");
+
+    // Test 8: Base Conversion without Base To
+    all_tests_passed &= run_test("Base Conversion without Base To", "----+-", "01", "01", "0");
 
     if (all_tests_passed) {
         printf("All tests passed!\n");
