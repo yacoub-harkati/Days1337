@@ -5,100 +5,92 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 15:47:18 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/06 23:14:50 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/09/06 16:30:52 by yaharkat           #+#    #+#             */
+/*   Updated: 2023/09/07 01:18:19 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-int	find_str_start(char *str, int *sign);
-int	get_pos_in_base(char c, char *base);
-
-
-int	is_char_in_base(char c, char *base)
+int	is_space(char c)
 {
-	int	i;
-
-	i = 0;
-	while (base[i])
-	{
-		if (c == base[i])
-			return (1);
-		i++;
-	}
+	if ((c >= 9 && c <= 13) || c == ' ')
+		return (1);
 	return (0);
 }
 
-int	is_valid_str(char *str, char *base, int index)
+int	is_valid_base(char *base)
 {
 	int	i;
-
-	i = index;
-	while (str[i])
-	{
-		if (!is_char_in_base(str[i], base))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	compute_length(long nbr, int base_len)
-{
-	int	count;
-
-	count = 0;
-	if (!nbr)
-		return (1);
-	while (nbr > 0)
-	{
-		nbr /= base_len;
-		count++;
-	}
-	return (count);
-}
-
-int	is_valid(char *base)
-{
-	int	i;
+	int	j;
 
 	i = 0;
-	if (!base || base[0] == '\0' || base[1] == '\0')
-		return (0);
 	while (base[i])
 	{
-		if (base[i] == '+' || base[i] == '-' || base[i] == base[i + 1])
+		if (base[i] == '-' || base[i] == '+')
 			return (0);
+		j = i + 1;
+		while (base[j])
+		{
+			if (base[i] == base[j])
+				return (0);
+			j++;
+		}
 		i++;
 	}
 	return (i);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int	get_index(char c, char *base)
 {
-	int	res;
-	int	sign;
-	int	base_len;
 	int	i;
 
-	res = 0;
-	sign = 1;
 	i = 0;
-	base_len = is_valid(base);
-	if (!base_len)
+	while (base[i])
+	{
+		if (base[i] == c)
+			return (i);
+		i++;
+	}
+	return (-1);
+}
+
+int	parse_number(char *str, int i, char *base)
+{
+	int	base_len;
+	int	number;
+
+	number = 0;
+	base_len = is_valid_base(base);
+	while (get_index(str[i], base) >= 0)
+	{
+		number *= base_len;
+		number += get_index(str[i], base);
+		i++;
+	}
+	return (number);
+}
+
+int	ft_atoi_base(char *str, char *base)
+{
+	int	i;
+	int	number;
+	int	neg;
+
+	number = 0;
+	neg = 0;
+	i = 0;
+	if (is_valid_base(base) < 2)
 		return (0);
-	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+	while (is_space(str[i]))
 		i++;
 	while (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
-			sign *= -1;
+			neg++;
 		i++;
 	}
-	if (!is_valid_str(str, base, i))
-		return (0);
-	while (check_index(str[i], base) != -1)
-		res = (res * base_len) + check_index(str[i++], base);
-	return (sign * res);
+	if (get_index(str[i], base) >= 0)
+		number = parse_number(str, i, base);
+	if (neg % 2 == 1)
+		number *= -1;
+	return (number);
 }

@@ -5,97 +5,81 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/27 15:47:16 by yaharkat          #+#    #+#             */
-/*   Updated: 2023/09/06 23:47:16 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/09/06 16:19:42 by yaharkat           #+#    #+#             */
+/*   Updated: 2023/09/07 02:07:36 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
-int		is_valid(char *base);
-int		compute_length(long nbr, int base_len);
-int		ft_atoi_base(char *str, char *base);
+int	is_space(char c);
+int	is_valid_base(char *base);
+int	ft_atoi_base(char *str, char *base);
 
-int	find_str_start(char *str, int *sign)
+int	compute_len(int nb, char *base)
 {
-	int	index;
+	long	number;
+	int		base_len;
+	int		i;
 
-	index = 0;
-	while ((str[index] >= 9 && str[index] <= 13) || str[index] == 32)
-	{
-		index++;
-	}
-	while (str[index] == '-' || str[index] == '+')
-	{
-		if (str[index] == '-')
-		{
-			*sign = -*sign;
-		}
-		index++;
-	}
-	return (index);
-}
-
-int	check_index(char c, char *base)
-{
-	int	i;
-
+	number = nb;
+	if (number < 0)
+		number *= -1;
 	i = 0;
-	while (base[i])
+	base_len = is_valid_base(base);
+	if (number == 0)
+		return (1);
+	while (number > 0)
 	{
-		if (base[i] == c)
-			return (i);
 		i++;
-	}
-	return (-1);
-}
-
-char	*ft_convert_base2(long number, int sign, char *base_to, char *tab)
-{
-	int	base_len;
-	int	size;
-	int	i;
-
-	base_len = is_valid(base_to);
-	i = 0;
-	size = compute_length(number, base_len);
-	if (sign)
-		tab[0] = '-';
-	if (!tab)
-		return (NULL);
-	while (i < size)
-	{
-		tab[size - i - !sign] = base_to[number % base_len];
 		number /= base_len;
-		i++;
 	}
-	tab[size + sign] = '\0';
-	return (tab);
+	if (nb <= 0)
+		i++;
+	return (i);
+}
+
+char	*fill_final_str(char *str, int i, int num, char *base)
+{
+	long	number;
+	int		sign;
+	int		index;
+	int		base_len;
+
+	base_len = is_valid_base(base);
+	index = i - 1;
+	sign = 0;
+	number = num;
+	if (number < 0)
+	{
+		sign = 1;
+		number *= -1;
+	}
+	while (index >= 0)
+	{
+		str[index] = base[number % base_len];
+		if (sign && index == 0)
+			str[index] = '-';
+		number /= base_len;
+		index--;
+	}
+	str[i] = '\0';
+	return (str);
 }
 
 char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 {
-	long	number;
-	int		size;
-	int		base_len;
-	int		sign;
-	char	*final_nbr_in_base;
+	char	*str;
+	int		i;
+	int		num;
 
-	sign = 0;
-	size = 0;
-	if (!is_valid(base_from) || !is_valid(base_to) || !*nbr)
-		return (NULL);
-	number = ft_atoi_base(nbr, base_from);
-	base_len = is_valid(base_to);
-	final_nbr_in_base = NULL;
-	if (number < 0)
-	{
-		sign = 1;
-		number = -number;
-	}
-	size = compute_length(number, base_len);
-	final_nbr_in_base = (char *)malloc((size + 2) * sizeof(char));
-	ft_convert_base2(number, sign, base_to, final_nbr_in_base);
-	return (final_nbr_in_base);
+	if (is_valid_base(base_from) < 2 || is_valid_base(base_to) < 2)
+		return (0);
+	num = ft_atoi_base(nbr, base_from);
+	str = malloc(sizeof(char) * compute_len(num, base_to) + 1);
+	if (!str)
+		return (0);
+	i = compute_len(num, base_to);
+	str = fill_final_str(str, i, num, base_to);
+	return (str);
 }
