@@ -5,22 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 16:30:52 by yaharkat           #+#    #+#             */
-/*   Updated: 2023/09/07 01:18:19 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/09/07 13:39:32 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/09/07 13:39:34 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int is_space(char c)
+int	is_space(char c)
 {
 	if ((c >= 9 && c <= 13) || c == ' ')
 		return (1);
 	return (0);
 }
 
-int is_valid_base(char *base)
+int	is_valid_base(char *base)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (base[i])
@@ -41,9 +41,9 @@ int is_valid_base(char *base)
 	return (i);
 }
 
-int get_index(char c, char *base)
+int	get_index(char c, char *base)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (base[i])
@@ -55,10 +55,10 @@ int get_index(char c, char *base)
 	return (-1);
 }
 
-int parse_number(char *str, int i, char *base)
+int	parse_number(char *str, int i, char *base)
 {
-	int base_len;
-	int number;
+	int	base_len;
+	int	number;
 
 	number = 0;
 	base_len = is_valid_base(base);
@@ -71,11 +71,11 @@ int parse_number(char *str, int i, char *base)
 	return (number);
 }
 
-int ft_atoi_base(char *str, char *base)
+int	ft_atoi_base(char *str, char *base)
 {
-	int i;
-	int number;
-	int neg;
+	int	i;
+	int	number;
+	int	neg;
 
 	number = 0;
 	neg = 0;

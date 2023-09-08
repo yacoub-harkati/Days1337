@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yaharkat <yaharkat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 16:19:42 by yaharkat           #+#    #+#             */
-/*   Updated: 2023/09/07 02:07:36 by yaharkat         ###   ########.fr       */
+/*   Created: 2023/09/07 13:39:27 by yaharkat          #+#    #+#             */
+/*   Updated: 2023/09/07 13:39:28 by yaharkat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	is_space(char c);
-int	is_valid_base(char *base);
-int	ft_atoi_base(char *str, char *base);
+int		is_space(char c);
+int		is_valid_base(char *base);
+int		ft_atoi_base(char *str, char *base);
 
 int	compute_len(int nb, char *base)
 {
