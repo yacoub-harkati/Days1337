@@ -60,7 +60,7 @@ char **ft_split(char *str)
     }
     strs = malloc(sizeof(char *) * (count + 1));
     if (!strs)
-    return NULL;
+        return NULL;
     i = 0;
     while (str[i])
     {
@@ -68,20 +68,13 @@ char **ft_split(char *str)
             i++;
         old_i = 0;
         while (str[i] && !(((str[i] <= 13 && str[i] >= 9) || str[i] == 32)))
+        {
             temp_buffer[old_i++] = str[i++];
+        }
+        temp_buffer[old_i] = '\0';
         if (old_i > 0)
         {
-            strs[p_i] = ft_strdup(temp_buffer);
-            if (strs[p_i] == NULL)
-            {
-                while (j < p_i)
-                {
-                    free(strs[j]);
-                    j++;
-                }
-                free(strs);
-                return NULL;
-            }
+            strs[p_i++] = ft_strdup(temp_buffer);
         }
     }
     strs[p_i] = NULL;
