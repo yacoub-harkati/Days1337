@@ -4,6 +4,10 @@ Welcome to my repository containing solutions for the August 2023 Piscine at 133
 
 Please feel free to open an issue on GitHub if you discover any errors or have any suggestions. Your feedback is highly appreciated. Thank you! 🙏
 
+## ⚠️ Educational Purpose Disclaimer ⚠️
+
+This repository is intended for educational purposes only. It serves as a reference to demonstrate problem-solving techniques and programming approaches. It is not meant for direct copying of solutions. Please use this repository as a learning resource to understand how to tackle challenges and develop your skills.
+
 🚫 **Don't Copy, Learn!** 🚫
 
 ## 📖 READ THIS BEFORE YOU PASS THE EXAM 📖
