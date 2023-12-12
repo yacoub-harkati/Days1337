@@ -1,16 +1,16 @@
-# 🚀 August 2023 Piscine Solutions 🚀
+#  August 2023 Piscine Solutions 
 
-Welcome to my repository containing solutions for the August 2023 Piscine at 1337! 📚
+Welcome to my repository containing solutions for the August 2023 Piscine at 1337! 
 
-Please feel free to open an issue on GitHub if you discover any errors or have any suggestions. Your feedback is highly appreciated. Thank you! 🙏
+Please feel free to open an issue on GitHub if you discover any errors or have any suggestions. Your feedback is highly appreciated. Thank you! 
 
-## ⚠️ Educational Purpose Disclaimer ⚠️
+##  Educational Purpose Disclaimer 
 
 This repository is intended for educational purposes only. It serves as a reference to demonstrate problem-solving techniques and programming approaches. It is not meant for direct copying of solutions. Please use this repository as a learning resource to understand how to tackle challenges and develop your skills.
 
-🚫 **Don't Copy, Learn!** 🚫
+🚫 **Don't Copy, Learn!** 
 
-## 📖 READ THIS BEFORE YOU PASS THE EXAM 📖
+## READ THIS BEFORE YOU PASS THE EXAM 
 
 ### How To Log Into The Exam
 - Username: `exam`
@@ -37,7 +37,7 @@ In the `examshell`, you have access to the following commands:
 - You need 25 points to pass any exam.
 - You need 50 points to pass the days.
 
-## 🚀 Piscine Tips 🚀
+##  Piscine Tips 
 
 ### Week 1: Shell00, Shell01, C00, C01
 - Don't waste your time on Shell01; focus on learning C and working on C00 and C01, as the exam is in C.
@@ -53,9 +53,9 @@ In the `examshell`, you have access to the following commands:
 ### Week 4: C11, C12, C13
 - Focus on validating the previous days with 100% and preparing for the final exam.
 
-🌙 SLEEP WELL + 🍔 EAT WELL = 😃 LIVE WELL + 🌟 SUCCESS
+ SLEEP WELL +  EAT WELL =  LIVE WELL +  SUCCESS
 
-## 📋 Table of Contents 📋
+##  Table of Contents 
 
 | Projects    | Solutions     |
 |-------------|---------------|
@@ -76,4 +76,4 @@ In the `examshell`, you have access to the following commands:
 | C12         |  not  graded  |
 
 
-Enjoy coding and GOOD LUCK in your Piscine! 🌟
+Enjoy coding and GOOD LUCK in your Piscine! 
